@@ -15,6 +15,7 @@
       "dev-master": "2.0.x-dev"
     },
     "config-plugin": {
+      "params": "config/params.php",
       "sms": "config/sms.php"
     }
   }
