@@ -2,6 +2,9 @@
   "name": "codexten/yii-sms",
   "type": "library",
   "description": "SMS component for yii 2.0 or higher",
+  "require": {
+    "yiisoft/yii2-httpclient": "~2.0.0"
+  },
   "autoload": {
     "psr-4": {
       "codexten\\yii\\sms\\": "src"
@@ -11,7 +14,7 @@
     "branch-alias": {
       "dev-master": "2.0.x-dev"
     },
-    "sconfig-plugin": {
+    "config-plugin": {
       "sms": "config/sms.php"
     }
   }
