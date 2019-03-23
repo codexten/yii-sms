@@ -37,32 +37,34 @@ class Textlocal extends Driver
     /**
      * Send text message and return response.
      *
-     * @return mixed
+     * @return void
+     * @throws \yii\base\InvalidConfigException
      */
     public function send()
     {
         $numbers = implode(",", $this->recipients);
-
+        $data = [
+            "username" => $this->username,
+            "hash" => $this->hash,
+            "numbers" => $numbers,
+            "sender" => rawurlencode($this->sender),
+            "message" => rawurlencode($this->body),
+            'unicode' => false,
+            'test' => $this->testMode,
+        ];
         $response = $this->client
             ->createRequest()
             ->setMethod('POST')
             ->setUrl($this->url)
-            ->setData([
-                "username" => $this->username,
-                "hash" => $this->hash,
-                "numbers" => $numbers,
-                "sender" => urlencode($this->sender),
-                "message" => $this->body,
-                'unicode' => true,
-                'test' => $this->testMode,
-            ])
+            ->setData($data)
             ->send();
 
-        $data = $this->getResponseData($response);
-        $time = asDatetime(time());
-        exec("echo '{$time} : {$numbers}' >> /tmp-dir/sms.txt");
+//        $data = $this->getResponseData($response);
 
-        return (object)array_merge($data, ["status" => true]);
+        return $data['status'];
+//        $time = asDatetime(time());
+//        exec("echo '{$time} : {$numbers}' >> /tmp-dir/sms.txt");
+//        return (object)array_merge($data, ["status" => true]);
     }
 
     /**
@@ -84,5 +86,4 @@ class Textlocal extends Driver
 
         return $data;
     }
-
 }

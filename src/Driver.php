@@ -1,4 +1,5 @@
 <?php
+
 namespace codexten\yii\sms;
 
 use yii\base\BaseObject;
@@ -8,6 +9,7 @@ use yii\httpclient\Client;
 
 /**
  * Class Driver
+ *
  * @package codexten\yii\sms
  * @author Jomon Johnson <jomonjohnson.dev@gmail.com>
  */
@@ -79,7 +81,9 @@ abstract class Driver extends BaseObject
         if (trim($message) == '') {
             throw new \Exception("Message text could not be empty.");
         }
-        $this->body = $this->unicodeMessageEncode($message);
+
+//        $this->body = $this->unicodeMessageEncode($message);
+        $this->body = $message;
 
         return $this;
     }
@@ -92,6 +96,7 @@ abstract class Driver extends BaseObject
         $message = substr($message, 2);
         $_message = hex2bin($message);
         $message = mb_convert_encoding($_message, 'UTF-8', 'UCS-2');
+
         return $message;
     }
 

@@ -14,4 +14,9 @@ return [
     'textlocal.username' => '',
     'textlocal.hash' => '',
     'textlocal.sender' => '',
+
+    // xpresssms
+    'xpresssms.username' => '',
+    'xpresssms.password' => '',
+    'xpresssms.sender' => '',
 ];

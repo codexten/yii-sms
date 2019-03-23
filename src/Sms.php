@@ -8,11 +8,13 @@ use yii\di\Instance;
 
 /**
  * Class SmsManager
+ *
  * @package codexten\yii\sms
  */
 class Sms extends Component
 {
     const DRIVER_TEXTLOCAL = 'textLocal';
+    const DRIVER_XPRESSSMS = 'xpresssms';
 
     public $defaultDriver = 'textLocal';
     /**
@@ -29,6 +31,7 @@ class Sms extends Component
     public function with($diver)
     {
         $this->driver = Instance::ensure($this->drivers[$diver]);
+
         return $this;
     }
 
