@@ -60,7 +60,7 @@ class Xpresssms extends Driver
             'action' => 'push_sms',
             'type' => 1,
             'route' => $this->route,
-            'message' => urlencode($this->body),
+            'message' => $this->body,
             'number' => $numbers,
             'sender' => $this->sender,
         ];
@@ -71,15 +71,12 @@ class Xpresssms extends Driver
             ->setData($data)
             ->send();
 
-        echo '<pre>';
-        var_dump($data);
-        var_dump($response);
-        echo '</pre>';
-        exit;
+        return true;
+
 
 //        $data = $this->getResponseData($response);
 
-        return $data['status'];
+//        return $data['status'];
 //        $time = asDatetime(time());
 //        exec("echo '{$time} : {$numbers}' >> /tmp-dir/sms.txt");
 //        return (object)array_merge($data, ["status" => true]);
