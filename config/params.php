@@ -11,7 +11,10 @@ return [
     'sms.defaultDriver' => 'textlocal',
 
     // textlocal
+
+    //The email address used to log into Textlocal.
     'textlocal.username' => '',
+    // visit https://control.textlocal.in/docs/ to get h
     'textlocal.hash' => '',
     'textlocal.sender' => '',
 
