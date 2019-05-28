@@ -6,8 +6,7 @@
  * Time: 11:40 AM
  */
 
-use codexten\yii\sms\Sms;
-
+use \codexten\yii\sms\Sms;
 
 return [
     'components' => [

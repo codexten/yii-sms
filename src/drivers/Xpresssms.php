@@ -64,12 +64,17 @@ class Xpresssms extends Driver
             'number' => $numbers,
             'sender' => $this->sender,
         ];
+
         $response = $this->client
             ->createRequest()
             ->setMethod('GET')
             ->setUrl($this->url)
             ->setData($data)
             ->send();
+        echo '<pre>';
+        var_dump($response);
+        echo '</pre>';
+        exit;
 
         return true;
 
