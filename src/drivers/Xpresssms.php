@@ -71,10 +71,6 @@ class Xpresssms extends Driver
             ->setUrl($this->url)
             ->setData($data)
             ->send();
-        echo '<pre>';
-        var_dump($response);
-        echo '</pre>';
-        exit;
 
         return true;
 
