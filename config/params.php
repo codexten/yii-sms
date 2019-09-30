@@ -9,6 +9,7 @@
 return [
     //sms
     'sms.defaultDriver' => 'textlocal',
+    'sms.testMode' => false,
 
     // textlocal
 

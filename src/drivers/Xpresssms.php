@@ -9,6 +9,7 @@
 namespace codexten\yii\sms\drivers;
 
 use codexten\yii\sms\Driver;
+use yii\httpclient\Response;
 
 /**
  * Class Sms
@@ -64,7 +65,7 @@ class Xpresssms extends Driver
             'number' => $numbers,
             'sender' => $this->sender,
         ];
-
+        /* @var $response Response*/
         $response = $this->client
             ->createRequest()
             ->setMethod('GET')

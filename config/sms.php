@@ -13,6 +13,7 @@ return [
         'sms' => [
             'class' => Sms::class,
             'defaultDriver' => $params['sms.defaultDriver'],
+            'testMode' => $params['sms.testMode'],
             'drivers' => [
                 Sms::DRIVER_TEXTLOCAL => [
                     'class' => \codexten\yii\sms\drivers\Textlocal::class,

@@ -17,6 +17,7 @@ class Sms extends Component
     const DRIVER_XPRESSSMS = 'xpresssms';
 
     public $defaultDriver = 'textLocal';
+    public $testMode = false;
     /**
      * @var Driver[]
      */
@@ -39,6 +40,10 @@ class Sms extends Component
     {
         if ($this->driver == null) {
             $this->with($this->defaultDriver);
+        }
+        \Yii::debug("Numbers : {$numbers}, Message : {$message}");
+        if ($this->testMode) {
+            return true;
         }
 
         return $this->driver->message($message)->to($numbers)->send();
